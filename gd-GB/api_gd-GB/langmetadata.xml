@@ -6,16 +6,16 @@
 	<creationDate>2025-06-18</creationDate>
 	<author>Clifford E Ford</author>
 	<authorEmail>cliff@ford.myzen.co.uk</authorEmail>
-	<authorUrl>https://jdocmanual.org/</authorUrl>
+	<authorUrl>https://github.com/ceford/cefjdemos-pkg-gd-gb</authorUrl>
 	<copyright>(C) 2025 Clifford E Ford. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<description><![CDATA[Scottish Gaelic translation created by openai.com]]></description>
 	<metadata>
 		<name>Scottish Gaelic</name>
-		<nativeName>Scottish Gaelic</nativeName>
+		<nativeName>Gàidhlig na h-Alba</nativeName>
 		<tag>gd-GB</tag>
 		<rtl>0</rtl>
-		<locale></locale>
+		<locale>gd_GB.utf8, gd_GB.UTF-8, gd_GB, gd, gla, gd-GB, scottish gaelic, gaelic, scots gaelic, scotland, uk, united kingdom</locale>
 		<firstDay>1</firstDay>
 		<weekEnd>0,6</weekEnd>
 		<calendar>gregorian</calendar>

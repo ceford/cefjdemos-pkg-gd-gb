@@ -2,16 +2,16 @@
 <extension type="package" method="upgrade">
 	<name>Scottish Gaelic Language Pack</name>
 	<packagename>gd-GB</packagename>
-	<version>5.3.1</version>
+	<version>5.3.1.1</version>
 	<creationDate>2025-06-18</creationDate>
 	<author>Clifford E Ford</author>
 	<authorEmail>cliff@ford.myzen.co.uk</authorEmail>
-	<authorUrl>https://jdocmanual.org/</authorUrl>
+	<authorUrl>https://github.com/ceford/cefjdemos-pkg-gd-gb</authorUrl>
 	<copyright>(C) 2025 Clifford E Ford. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<url></url>
-	<packager></packager>
-	<packagerurl></packagerurl>
+	<url>https://github.com/ceford/cefjdemos-pkg-gd-gb</url>
+	<packager>Clifford E Ford</packager>
+	<packagerurl>https://github.com/ceford/cefjdemos-pkg-gd-gb</packagerurl>
 	<description><![CDATA[Scottish Gaelic translation created by openai.com]]></description>
 	<blockChildUninstall>true</blockChildUninstall>
 	<scriptfile>script.php</scriptfile>
@@ -21,6 +21,6 @@
 		<file type="language" client="api" id="gd-GB">api_gd-GB.zip</file>
 	</files>
 	<updateservers>
-		<server type="collection" priority="1" name="Accredited Joomla! Translations"></server>
+		<server type="extension" priority="2" name="Scottish Gaelic Update Site">https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/main/pkg_gd-GB.zip</server>
 	</updateservers>
 </extension>

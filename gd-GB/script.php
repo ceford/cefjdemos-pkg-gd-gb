@@ -15,7 +15,7 @@ use Joomla\CMS\Installer\InstallerScript;
  *
  * @since  4.0.0v1
  */
-class Pkg_deDEInstallerScript extends InstallerScript
+class Pkg_gdGBInstallerScript extends InstallerScript
 {
 	/**
 	 * Extension script constructor.
@@ -31,9 +31,9 @@ class Pkg_deDEInstallerScript extends InstallerScript
 		$this->deleteFiles = [
             // Previous availbale version was for 2.5 - assume already removed
 
-			// Old files from Joomla 3 language packs
+			// Old files from Joomla 3 language packs - assume already removed
 
-			// Old files from Joomla 4 language packs
+			// Old files from Joomla 4 language packs - assume already removed
 
 			// Old files from Joomla 5 language packs (Only relevant for Joomla 6, should then be included in the deletion array with the 6.0-dev branch once created)
 			// '/administrator/language/de-DE/plg_captcha_recaptcha_invisible.ini',

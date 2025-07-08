@@ -2,7 +2,7 @@
 <extension type="package" method="upgrade">
 	<name>Scottish Gaelic Language Pack</name>
 	<packagename>gd-GB</packagename>
-	<version>5.3.1.1</version>
+	<version>5.3.1.2</version>
 	<creationDate>2025-06-18</creationDate>
 	<author>Clifford E Ford</author>
 	<authorEmail>cliff@ford.myzen.co.uk</authorEmail>

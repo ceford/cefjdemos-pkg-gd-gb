@@ -5,7 +5,7 @@
         <description>Scottish Gaelic Language Pack</description>
         <element>pkg_gd-GB</element>
         <type>language</type>
-        <version>5.3.1.1</version>
+        <version>5.3.1.2</version>
         <client>administrator</client>
         <infourl title="Scottish Gaelic Language Pack">https://github.com/ceford/cefjdemos-pkg-de-gb/blob/main/README.md</infourl>
         <downloads>

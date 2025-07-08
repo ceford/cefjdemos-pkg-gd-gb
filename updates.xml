@@ -7,7 +7,7 @@
         <type>language</type>
         <version>5.3.1.2</version>
         <client>administrator</client>
-        <infourl title="Scottish Gaelic Language Pack">https://github.com/ceford/cefjdemos-pkg-de-gb/blob/main/README.md</infourl>
+        <infourl title="Scottish Gaelic Language Pack">https://github.com/ceford/cefjdemos-pkg-gd-gb/blob/main/README.md</infourl>
         <downloads>
             <downloadurl type="full" format="zip">https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/main/pkg_gd-GB.zip</downloadurl>
         </downloads>

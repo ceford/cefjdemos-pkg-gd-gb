@@ -3,7 +3,7 @@
     <update>
         <name>Scottish Gaelic</name>
         <description>Scottish Gaelic Language Pack</description>
-        <element>pkg_gd-GB</element>
+        <element>gd-GB</element>
         <type>language</type>
         <version>5.3.1.2</version>
         <client>administrator</client>
@@ -12,13 +12,13 @@
             <downloadurl type="full" format="zip">https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/main/pkg_gd-GB.zip</downloadurl>
         </downloads>
         <sha256>
-            71a8dd68402e8dcb00e0d9c8f29add5d639bcfdbcd88563ccc095e36ee4545fb
+            9f87ff34e266f9cf7aa69ade02a05c633023cd938d7bd618bc8ff43f16600daf
         </sha256>
         <sha384>
-            d532d766d5dd4bc44a8b729398d680c79d56a070dbff4ecb0cd5aa160a432aa985198237805a515b9064265d8da4b837
+            63c1ce944c5a5f79ebbde758c1c10f803c4684fcb1dab6df7aa138eab1c98260e7c93ebb652f577ed65ce308d0d29ff2
         </sha384>
         <sha512>
-            927584583bc010dc3f034994a56629698fe10094b71a63142fe912890bd3e7f6c5c4f851920108990084ae9141f941f7e626ef4d44550fa6ea0de651d4d37094
+            98868560977f1a8bcec9b9b223a65ba33f1abdd5146b027b8fb768ce9eb5fef7fbb866990208b9850520d89a435c8f11b28ceff10e86c543ecb2967a36f8e1d4
         </sha512>
         <changelogurl>https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/refs/heads/main/changelog.xml</changelogurl>
         <tags>

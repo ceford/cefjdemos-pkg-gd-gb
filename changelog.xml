@@ -1,6 +1,6 @@
 <changelogs>
     <changelog>
-        <element>pkg_gd-GB</element>
+        <element>gd-GB</element>
         <type>language</type>
         <version>5.3.1.2</version>
         <change>

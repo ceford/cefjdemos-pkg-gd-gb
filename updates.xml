@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<updates>
+    <update>
+        <name>gd-GB</name>
+        <description>Scottish Gaelic Language Pack</description>
+        <element>pkg_gd-GB</element>
+        <type>language</type>
+        <version>5.3.1.1</version>
+        <client>administrator</client>
+        <infourl title="Scottish Gaelic Language Pack">https://github.com/ceford/cefjdemos-pkg-de-gb/blob/main/README.md</infourl>
+        <downloads>
+            <downloadurl type="full" format="zip">https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/main/pkg_gd-GB.zip</downloadurl>
+        </downloads>
+        <changelogurl>https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/refs/heads/main/changelog.xml</changelogurl>
+        <tags>
+            <tag>stable</tag>
+        </tags>
+        <targetplatform name="joomla" version="[456].[012345]" />
+    </update>
+</updates>

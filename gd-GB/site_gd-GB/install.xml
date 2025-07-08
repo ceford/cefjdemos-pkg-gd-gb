@@ -13,7 +13,7 @@
 
 	<files>
 		<folder>/</folder>
-		<filename file="meta">langmetadata.xml</filename>
-		<filename file="meta">install.xml</filename>
+		<filename>langmetadata.xml</filename>
+		<filename>install.xml</filename>
 	</files>
 </extension>

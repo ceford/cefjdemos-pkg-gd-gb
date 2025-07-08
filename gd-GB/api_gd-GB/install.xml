@@ -13,6 +13,6 @@
 
 	<files>
 		<folder>/</folder>
-		<filename file="meta">install.xml</filename>
+		<filename>install.xml</filename>
 	</files>
 </extension>

@@ -1,29 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <updates>
-    <update>
-        <name>Scottish Gaelic</name>
-        <description>Scottish Gaelic Language Pack</description>
-        <element>gd-GB</element>
-        <type>language</type>
-        <version>5.3.1.2</version>
-        <client>administrator</client>
-        <infourl title="Scottish Gaelic Language Pack">https://github.com/ceford/cefjdemos-pkg-gd-gb/blob/main/README.md</infourl>
-        <downloads>
-            <downloadurl type="full" format="zip">https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/main/pkg_gd-GB.zip</downloadurl>
-        </downloads>
-        <sha256>
-            9f87ff34e266f9cf7aa69ade02a05c633023cd938d7bd618bc8ff43f16600daf
-        </sha256>
-        <sha384>
-            63c1ce944c5a5f79ebbde758c1c10f803c4684fcb1dab6df7aa138eab1c98260e7c93ebb652f577ed65ce308d0d29ff2
-        </sha384>
-        <sha512>
-            98868560977f1a8bcec9b9b223a65ba33f1abdd5146b027b8fb768ce9eb5fef7fbb866990208b9850520d89a435c8f11b28ceff10e86c543ecb2967a36f8e1d4
-        </sha512>
-        <changelogurl>https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/refs/heads/main/changelog.xml</changelogurl>
-        <tags>
-            <tag>stable</tag>
-        </tags>
-        <targetplatform name="joomla" version="[456].[012345]" />
-    </update>
+  <update>
+    <name>Scottish Gaelic</name>
+    <description>Scottish Gaelic Language Pack</description>
+    <element>gd-GB</element>
+    <type>language</type>
+    <version>5.3.1.2</version>
+    <client>administrator</client>
+    <infourl title="Scottish Gaelic Language Pack">https://github.com/ceford/cefjdemos-pkg-gd-gb/blob/main/README.md</infourl>
+    <downloads>
+      <downloadurl type="full" format="zip">https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/main/pkg_gd-GB.zip</downloadurl>
+    </downloads>
+    <sha256>9f87ff34e266f9cf7aa69ade02a05c633023cd938d7bd618bc8ff43f16600daf</sha256>
+    <sha384>63c1ce944c5a5f79ebbde758c1c10f803c4684fcb1dab6df7aa138eab1c98260e7c93ebb652f577ed65ce308d0d29ff2</sha384>
+    <sha512>98868560977f1a8bcec9b9b223a65ba33f1abdd5146b027b8fb768ce9eb5fef7fbb866990208b9850520d89a435c8f11b28ceff10e86c543ecb2967a36f8e1d4</sha512>
+    <changelogurl>https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/refs/heads/main/changelog.xml</changelogurl>
+    <tags>
+      <tag>stable</tag>
+    </tags>
+    <targetplatform name="joomla" version="[456].[012345]"/>
+  </update>
 </updates>

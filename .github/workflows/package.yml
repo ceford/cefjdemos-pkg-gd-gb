@@ -120,11 +120,6 @@ echo "Download URL: $DOWNLOAD_URL" >> $GITHUB_OUTPUT
 echo "Current directory: $(pwd)" >> $GITHUB_OUTPUT
 echo "Listing contents: " >> $GITHUB_OUTPUT
 
-echo "Looking for updates.xml in workspace: " >> $GITHUB_OUTPUT
-find . -name "updates.xml"  >> $GITHUB_OUTPUT
-
-echo "Contents of updates.xml before update: "  >> $GITHUB_OUTPUT
-cat updates.xml  >> $GITHUB_OUTPUT
 
           xmlstarlet ed \
             -u "//update/version" -v "$VERSION" \

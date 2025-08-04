@@ -94,23 +94,25 @@ jobs:
           git commit -m "Add new package ${{ steps.vars.outputs.package_name }}"
           git push
 
-      - name: Install xmlstarlet
-        run: sudo apt-get update && sudo apt-get install -y xmlstarlet
-
       - name: Update updates.xml with current metadata
         run: |
-          PACKAGE_NAME="${{ steps.vars.outputs.package_name }}"
-          ZIP_PATH="build/final/${PACKAGE_NAME}.zip"
+          PACKAGE_NAME="${{ steps.vars.outputs.package_name }}.zip"
+          ZIP_PATH="build/final/${PACKAGE_NAME}"
+          BRANCH="${{ steps.vars.outputs.branch }}"
 
-          VERSION="${{ steps.vars.outputs.version }}"
+          # Extract version from pkg_gd-GB.xml
+          VERSION=$(xmllint --xpath "string(//version)" pkg_gd-GB.xml)
+
+          # Read hash values
           SHA256=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.zip.sha256)
           SHA384=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.zip.sha384)
           SHA512=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.zip.sha512)
-          BRANCH="${{ steps.vars.outputs.branch }}"
 
+          # Construct URLs
           DOWNLOAD_URL="https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/${BRANCH}/downloads/${PACKAGE_NAME}"
           CHANGELOG_URL="https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/${BRANCH}/changelog.xml"
 
+          # Update updates.xml using xmlstarlet
           xmlstarlet ed \
             -u "//update/version" -v "$VERSION" \
             -u "//update/downloads/downloadurl" -v "$DOWNLOAD_URL" \

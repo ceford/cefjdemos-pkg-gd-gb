@@ -118,7 +118,7 @@ jobs:
           SHA512=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.sha512)
           BRANCH="${{ steps.vars.outputs.branch }}"
 
-          DOWNLOAD_URL="https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/${BRANCH}/downloads/${PACKAGE_NAME}.zip"
+          DOWNLOAD_URL="https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/${BRANCH}/downloads/${PACKAGE_NAME}"
           CHANGELOG_URL="https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/${BRANCH}/changelog.xml"
 
           xmlstarlet ed \

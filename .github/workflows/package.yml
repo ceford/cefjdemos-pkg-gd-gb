@@ -96,7 +96,7 @@ jobs:
       - name: Update updates.xml with current metadata
         run: |
           PACKAGE_NAME="${{ steps.vars.outputs.package_name }}"
-          ZIP_PATH="build/final/${PACKAGE_NAME}"
+          ZIP_PATH="build/final/${PACKAGE_NAME}.zip"
 
           VERSION="${{ steps.vars.outputs.version }}"
           SHA256=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.sha256)

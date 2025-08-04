@@ -5,15 +5,15 @@
     <description>Scottish Gaelic Language Pack</description>
     <element>gd-GB</element>
     <type>language</type>
-    <version>6.0.0</version>
+    <version>5.3.1.2</version>
     <client>administrator</client>
     <infourl title="Scottish Gaelic Language Pack">https://github.com/ceford/cefjdemos-pkg-gd-gb/blob/main/README.md</infourl>
     <downloads>
-      <downloadurl type="full" format="zip">https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/joomla5/downloads/lang-extension-joomla5-6.0.0</downloadurl>
+      <downloadurl type="full" format="zip">https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/joomla5/downloads/lang-extension-joomla5-5.3.1.2</downloadurl>
     </downloads>
-    <sha256>96578006bc4524c1c3d214ee5c4ada23cb21a27913a9263b8acad2271b8c83aa</sha256>
-    <sha384>255c070234d07e1ae66538bdbbe1d759e56146ec4d56ece58956bb857879718f238319b98931633271f725803ab7fce7</sha384>
-    <sha512>95bfed4cd0a4df15dc3d250670d8ccde161b094219996bb9cdc4dceb5d09570e4f948a7e82678caa2402c6eb8508f80b8ed5ae316e8bb24d6c69cc865d2971f1</sha512>
+    <sha256>818cef582aed9943a2f6550d50765ceddfbd97a91221aa8a2efef9f9997d5f33</sha256>
+    <sha384>4170e2ed91d8c8027d48f7d8841c286d497db850896973979b188e456aac492b38ae9aa06d58545be82ec680d576d3ad</sha384>
+    <sha512>dec6ef8f04d97e2df98c0a79d183e48bfd1e2ec80d18da64a322c3d44a6cc8bad4ba39093db787cbfc1f6b5e0bf8dabc296f0cf0238ad4bd5f386b58ae6feefe</sha512>
     <changelogurl>https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/joomla5/changelog.xml</changelogurl>
     <tags>
       <tag>stable</tag>

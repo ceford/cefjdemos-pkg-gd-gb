@@ -1,0 +1,68 @@
+name: Build Joomla Language Extension Package
+
+on:
+  push:
+    branches:
+      - joomla5
+      - joomla6
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set version and target
+        id: vars
+        run: |
+          BRANCH_NAME="${GITHUB_REF##*/}"
+          VERSION_DATE=$(date +%Y%m%d%H%M%S)
+          PACKAGE_NAME="lang-extension-${BRANCH_NAME}-${VERSION_DATE}"
+          echo "branch=${BRANCH_NAME}" >> $GITHUB_OUTPUT
+          echo "package_name=${PACKAGE_NAME}" >> $GITHUB_OUTPUT
+
+      - name: Create individual zip files
+        run: |
+          mkdir -p build/zips
+          zip -r build/zips/admin_gd-GB.zip gd-GB/admin_gd-GB
+          zip -r build/zips/api_gd-GB.zip gd-GB/api_gd-GB
+          zip -r build/zips/site_gd-GB.zip gd-GB/site_gd-GB
+
+      - name: Create final package zip
+        run: |
+          mkdir -p build/final
+          cp manifest.xml build/zips/
+          cd build/zips
+          zip -r ../final/${{ steps.vars.outputs.package_name }}.zip ./*
+          cd ../..
+
+      - name: Generate SHA256 and SHA512 hashes
+        run: |
+          cd build/final
+          sha256sum ${{ steps.vars.outputs.package_name }}.zip > ${{ steps.vars.outputs.package_name }}.zip.sha256
+          sha512sum ${{ steps.vars.outputs.package_name }}.zip > ${{ steps.vars.outputs.package_name }}.zip.sha512
+          cd ../..
+
+      - name: Upload package and hashes as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.vars.outputs.package_name }}
+          path: |
+            build/final/${{ steps.vars.outputs.package_name }}.zip
+            build/final/${{ steps.vars.outputs.package_name }}.zip.sha256
+            build/final/${{ steps.vars.outputs.package_name }}.zip.sha512
+
+      - name: Commit to download folder (optional)
+        if: github.ref == 'refs/heads/joomla5' || github.ref == 'refs/heads/joomla6'
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git fetch
+          git checkout ${{ steps.vars.outputs.branch }}
+          mkdir -p downloads
+          cp build/final/* downloads/
+          git add downloads/
+          git commit -m "Add new package ${{ steps.vars.outputs.package_name }}"
+          git push

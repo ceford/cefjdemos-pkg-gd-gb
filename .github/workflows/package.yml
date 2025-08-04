@@ -94,6 +94,9 @@ jobs:
           git commit -m "Add new package ${{ steps.vars.outputs.package_name }}"
           git push
 
+      - name: Install xmlstarlet
+        run: sudo apt-get update && sudo apt-get install -y xmlstarlet
+
       - name: Update updates.xml with current metadata
         run: |
           PACKAGE_NAME="${{ steps.vars.outputs.package_name }}"

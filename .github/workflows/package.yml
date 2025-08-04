@@ -97,6 +97,16 @@ jobs:
       - name: Install xmlstarlet
         run: sudo apt-get update && sudo apt-get install -y xmlstarlet
 
+- name: Debug location of updates.xml
+  run: |
+    echo "Current directory: $(pwd)"
+    echo "Files in workspace:"
+    ls -la
+    echo "Looking for updates.xml:"
+    find . -name updates.xml
+    echo "updates.xml contents:"
+    cat updates.xml
+
       - name: Update updates.xml with current metadata
         run: |
           PACKAGE_NAME="${{ steps.vars.outputs.package_name }}"
@@ -110,8 +120,6 @@ jobs:
 
           DOWNLOAD_URL="https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/${BRANCH}/downloads/${PACKAGE_NAME}"
           CHANGELOG_URL="https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/${BRANCH}/changelog.xml"
-
-          echo "Current directory: $(pwd)" >> $GITHUB_OUTPUT
 
           xmlstarlet ed \
             -u "//update/version" -v "$VERSION" \

@@ -111,16 +111,6 @@ jobs:
           DOWNLOAD_URL="https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/${BRANCH}/downloads/${PACKAGE_NAME}"
           CHANGELOG_URL="https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/${BRANCH}/changelog.xml"
 
-echo "Version: $VERSION"  >> $GITHUB_OUTPUT
-echo "SHA256: $SHA256" >> $GITHUB_OUTPUT
-echo "SHA384: $SHA384" >> $GITHUB_OUTPUT
-echo "SHA512: $SHA512" >> $GITHUB_OUTPUT
-echo "Download URL: $DOWNLOAD_URL" >> $GITHUB_OUTPUT
-
-echo "Current directory: $(pwd)" >> $GITHUB_OUTPUT
-echo "Listing contents: " >> $GITHUB_OUTPUT
-
-
           xmlstarlet ed \
             -u "//update/version" -v "$VERSION" \
             -u "//update/downloads/downloadurl" -v "$DOWNLOAD_URL" \

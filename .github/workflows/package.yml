@@ -6,6 +6,16 @@ on:
       - joomla5
       - joomla6
 
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Custom version (optional, overrides pkg_gd-GB.xml <version>)'
+        required: false
+      forceRebuild:
+        description: 'Force rebuild all zip files (true/false)'
+        required: false
+        default: 'false'
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,9 +28,17 @@ jobs:
         id: vars
         run: |
           BRANCH_NAME="${GITHUB_REF##*/}"
-          VERSION_DATE=$(date +%Y%m%d%H%M%S)
-          PACKAGE_NAME="lang-extension-${BRANCH_NAME}-${VERSION_DATE}"
+
+          # Use manual version input if provided, else read from pkg_gd-GB.xml
+          if [ -n "${{ github.event.inputs.version }}" ]; then
+            VERSION="${{ github.event.inputs.version }}"
+          else
+            VERSION=$(xmllint --xpath "string(//version)" pkg_gd-GB.xml)
+          fi
+
+          PACKAGE_NAME="lang-extension-${BRANCH_NAME}-${VERSION}"
           echo "branch=${BRANCH_NAME}" >> $GITHUB_OUTPUT
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
           echo "package_name=${PACKAGE_NAME}" >> $GITHUB_OUTPUT
 
       - name: Create individual zip files

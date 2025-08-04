@@ -33,7 +33,7 @@ jobs:
       - name: Create final package zip
         run: |
           mkdir -p build/final
-          cp manifest.xml build/zips/
+          cp pkg_gd-GB.xml build/zips/
           cd build/zips
           zip -r ../final/${{ steps.vars.outputs.package_name }}.zip ./*
           cd ../..

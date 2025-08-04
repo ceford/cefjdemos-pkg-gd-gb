@@ -21,6 +21,6 @@
 		<file type="language" client="api" id="gd-GB">api_gd-GB.zip</file>
 	</files>
 	<updateservers>
-		<server type="extension" priority="2" name="Scottish Gaelic Update Site">https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/main/updates.xml</server>
+		<server type="extension" priority="2" name="Scottish Gaelic Update Site">https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/refs/heads/joomla6/pkg_gd-GB.xml</server>
 	</updateservers>
 </extension>

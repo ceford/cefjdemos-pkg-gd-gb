@@ -63,6 +63,6 @@ jobs:
           git checkout ${{ steps.vars.outputs.branch }}
           mkdir -p downloads
           cp build/final/* downloads/
-          git add downloads/
+          git add -f downloads/
           git commit -m "Add new package ${{ steps.vars.outputs.package_name }}"
           git push

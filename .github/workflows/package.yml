@@ -120,3 +120,4 @@ jobs:
             -u "//update/changelogurl" -v "$CHANGELOG_URL" \
             updates.xml > updated_updates.xml
 
+          mv updated_updates.xml updates.xml

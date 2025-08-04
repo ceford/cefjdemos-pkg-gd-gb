@@ -111,7 +111,7 @@ jobs:
           DOWNLOAD_URL="https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/${BRANCH}/downloads/${PACKAGE_NAME}"
           CHANGELOG_URL="https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/${BRANCH}/changelog.xml"
 
-echo "Current directory: $(pwd)"
+          echo "Current directory: $(pwd)" >> $GITHUB_OUTPUT
 
           xmlstarlet ed \
             -u "//update/version" -v "$VERSION" \

@@ -77,6 +77,7 @@ jobs:
           path: |
             build/final/${{ steps.vars.outputs.package_name }}.zip
             build/final/${{ steps.vars.outputs.package_name }}.zip.sha256
+            build/final/${{ steps.vars.outputs.package_name }}.zip.sha384
             build/final/${{ steps.vars.outputs.package_name }}.zip.sha512
 
       - name: Commit to download folder (optional)
@@ -94,23 +95,18 @@ jobs:
 
       - name: Update updates.xml with current metadata
         run: |
-          PACKAGE_NAME="${{ steps.vars.outputs.package_name }}.zip"
+          PACKAGE_NAME="${{ steps.vars.outputs.package_name }}"
           ZIP_PATH="build/final/${PACKAGE_NAME}"
+
+          VERSION="${{ steps.vars.outputs.version }}"
+          SHA256=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.sha256)
+          SHA384=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.sha384)
+          SHA512=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.sha512)
           BRANCH="${{ steps.vars.outputs.branch }}"
 
-          # Extract version from pkg_gd-GB.xml
-          VERSION=$(xmllint --xpath "string(//version)" pkg_gd-GB.xml)
-
-          # Read hash values
-          SHA256=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.zip.sha256)
-          SHA384=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.zip.sha384)
-          SHA512=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.zip.sha512)
-
-          # Construct URLs
           DOWNLOAD_URL="https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/${BRANCH}/downloads/${PACKAGE_NAME}"
           CHANGELOG_URL="https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/${BRANCH}/changelog.xml"
 
-          # Update updates.xml using xmlstarlet
           xmlstarlet ed \
             -u "//update/version" -v "$VERSION" \
             -u "//update/downloads/downloadurl" -v "$DOWNLOAD_URL" \

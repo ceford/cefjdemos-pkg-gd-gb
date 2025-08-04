@@ -119,7 +119,6 @@ echo "Download URL: $DOWNLOAD_URL"
 
 echo "Current directory: $(pwd)"
 echo "Listing contents:"
-ls -la
 
 echo "Looking for updates.xml in workspace:"
 find . -name "updates.xml"

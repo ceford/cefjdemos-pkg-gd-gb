@@ -78,6 +78,7 @@ jobs:
           path: |
             build/final/${{ steps.vars.outputs.package_name }}.zip
             build/final/${{ steps.vars.outputs.package_name }}.zip.sha256
+            build/final/${{ steps.vars.outputs.package_name }}.zip.sha384
             build/final/${{ steps.vars.outputs.package_name }}.zip.sha512
 
       - name: Commit to download folder (optional)

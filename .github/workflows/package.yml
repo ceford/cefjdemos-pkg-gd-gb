@@ -1,6 +1,7 @@
 name: Build Joomla Language Extension Package
 
 on:
+
   push:
     branches:
       - joomla5
@@ -15,6 +16,9 @@ on:
         description: 'Force rebuild all zip files (true/false)'
         required: false
         default: 'false'
+
+permissions:
+  contents: write
 
 jobs:
   build:

@@ -94,16 +94,6 @@ jobs:
           git commit -m "Add new package ${{ steps.vars.outputs.package_name }}"
           git push
 
-      - name: Debug location of updates.xml
-        run: |
-          echo "Current directory: $(pwd)"
-          echo "Files in workspace:"
-          ls -la
-          echo "Looking for updates.xml:"
-          find . -name updates.xml
-          echo "updates.xml contents:"
-          cat updates.xml
-
       - name: Install xmlstarlet
         run: sudo apt-get update && sudo apt-get install -y xmlstarlet
 
@@ -140,13 +130,3 @@ jobs:
           git add updates.xml
           git commit -m "Update updates.xml with version ${{ steps.vars.outputs.version }}" || echo "No changes to commit"
           git push origin ${{ steps.vars.outputs.branch }}
-
-      - name: Repeat debug location of updates.xml
-        run: |
-          echo "Current directory: $(pwd)"
-          echo "Files in workspace:"
-          ls -la
-          echo "Looking for updates.xml:"
-          find . -name updates.xml
-          echo "updates.xml contents:"
-          cat updates.xml

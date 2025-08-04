@@ -131,3 +131,13 @@ jobs:
             updates.xml > updated_updates.xml
 
           mv updated_updates.xml updates.xml
+
+      - name: Repeat debug location of updates.xml
+        run: |
+          echo "Current directory: $(pwd)"
+          echo "Files in workspace:"
+          ls -la
+          echo "Looking for updates.xml:"
+          find . -name updates.xml
+          echo "updates.xml contents:"
+          cat updates.xml

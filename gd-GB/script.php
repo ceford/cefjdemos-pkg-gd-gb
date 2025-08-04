@@ -25,7 +25,7 @@ class Pkg_gdGBInstallerScript extends InstallerScript
 	public function __construct()
 	{
 		// Define the minimum versions to be supported.
-		$this->minimumJoomla = '5.0';
+		$this->minimumJoomla = '6.0';
 		$this->minimumPhp    = '8.1.0';
 
 		$this->deleteFiles = [

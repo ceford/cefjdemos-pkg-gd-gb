@@ -117,15 +117,6 @@ echo "SHA384: $SHA384"
 echo "SHA512: $SHA512"
 echo "Download URL: $DOWNLOAD_URL"
 
-echo "Current directory: $(pwd)"
-echo "Listing contents:"
-
-echo "Looking for updates.xml in workspace:"
-find . -name "updates.xml"
-
-echo "Contents of updates.xml before update:"
-cat updates.xml
-
           xmlstarlet ed \
             -u "//update/version" -v "$VERSION" \
             -u "//update/downloads/downloadurl" -v "$DOWNLOAD_URL" \

@@ -1,0 +1,21 @@
+# macOS system files
+.DS_Store
+
+# Build artifacts
+build/
+downloads/
+*.zip
+*.zip.sha256
+*.zip.sha512
+
+# Node / Composer (if ever used in the future)
+node_modules/
+vendor/
+
+# IDE/editor junk
+.idea/
+.vscode/
+
+# Logs or temp
+*.log
+*.tmp

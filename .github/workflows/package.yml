@@ -112,14 +112,6 @@ jobs:
           CHANGELOG_URL="https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/${BRANCH}/changelog.xml"
 
 echo "Current directory: $(pwd)"
-echo "Listing contents:"
-ls -la
-
-echo "Looking for updates.xml in workspace:"
-find . -name "updates.xml"
-
-echo "Contents of updates.xml before update:"
-cat updates.xml
 
           xmlstarlet ed \
             -u "//update/version" -v "$VERSION" \

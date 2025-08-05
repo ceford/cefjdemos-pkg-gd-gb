@@ -6,6 +6,7 @@ build/
 downloads/
 *.zip
 *.zip.sha256
+*.zip.sha384
 *.zip.sha512
 
 # Node / Composer (if ever used in the future)

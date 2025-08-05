@@ -9,11 +9,11 @@
     <client>administrator</client>
     <infourl title="Scottish Gaelic Language Pack">https://github.com/ceford/cefjdemos-pkg-gd-gb/blob/main/README.md</infourl>
     <downloads>
-      <downloadurl type="full" format="zip">https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/joomla5/downloads/lang-extension-joomla5.zip</downloadurl>
+      <downloadurl type="full" format="zip">https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/joomla5/downloads/pkg_gd-GB-joomla5.zip</downloadurl>
     </downloads>
-    <sha256>eca5eb1242ee8d8a38d40177fa467cdb76c34b1140dff184b9fdd688265dbd97</sha256>
-    <sha384>eb9a9478eae873ffbc839adcfab95bd1a8b376f2294ffcd5a9852a1ca609dcf67cdb457168328c2f468c8c9e9beeb29c</sha384>
-    <sha512>5a9108535f3abf209a86d181578b673b1d445d6da008aa1272649a2161ecc8e083f8accbe58cc9febdcb5b3a1db4e388a8d9931966cbac317ae911364b9ea028</sha512>
+    <sha256>b383f6eb02c821e235d88e9b4f7ffde0c6d18ab9cc91c38f5a2f9635d5c778ba</sha256>
+    <sha384>7b01bd83759e8c0300e13a6a61a6f012346a5539e946390c766e5eea5ac4c4d1465c59acbc1a45b6bac0c341c162e18e</sha384>
+    <sha512>ecfbab92e400dcbb5e8f44137fd3fcb50cbd9c62f82bb5cf7c71d6ab43c4f31783a3684ff7988da92224c45ac7b399006fd7f78adc13ad32a06044988930b73b</sha512>
     <changelogurl>https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/joomla5/changelog.xml</changelogurl>
     <tags>
       <tag>stable</tag>

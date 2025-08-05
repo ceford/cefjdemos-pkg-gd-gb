@@ -20,6 +20,9 @@ on:
 permissions:
   contents: write
 
+env:
+  EXTENSION_NAME: pkg_gd-GB
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -43,7 +46,7 @@ jobs:
             VERSION=$(xmllint --xpath "string(//version)" pkg_gd-GB.xml)
           fi
 
-          PACKAGE_NAME="lang-extension-${BRANCH_NAME}"
+          PACKAGE_NAME="${EXTENSION_NAME}-${BRANCH_NAME}"
           echo "branch=${BRANCH_NAME}" >> $GITHUB_OUTPUT
           echo "version=${VERSION}" >> $GITHUB_OUTPUT
           echo "package_name=${PACKAGE_NAME}" >> $GITHUB_OUTPUT
@@ -77,9 +80,9 @@ jobs:
           name: ${{ steps.vars.outputs.package_name }}
           path: |
             build/final/${{ steps.vars.outputs.package_name }}.zip
-            build/final/${{ steps.vars.outputs.package_name }}.sha256
-            build/final/${{ steps.vars.outputs.package_name }}.sha384
-            build/final/${{ steps.vars.outputs.package_name }}.sha512
+            build/final/${{ steps.vars.outputs.package_name }}.zip.sha256
+            build/final/${{ steps.vars.outputs.package_name }}.zip.sha384
+            build/final/${{ steps.vars.outputs.package_name }}.zip.sha512
 
       - name: Commit to download folder (optional)
         if: github.ref == 'refs/heads/joomla5' || github.ref == 'refs/heads/joomla6'
@@ -113,9 +116,9 @@ jobs:
           ZIP_PATH="build/final/${PACKAGE_NAME}.zip"
 
           VERSION="${{ steps.vars.outputs.version }}"
-          SHA256=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.sha256)
-          SHA384=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.sha384)
-          SHA512=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.sha512)
+          SHA256=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.zip.sha256)
+          SHA384=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.zip.sha384)
+          SHA512=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.zip.sha512)
           BRANCH="${{ steps.vars.outputs.branch }}"
 
           DOWNLOAD_URL="https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/${BRANCH}/downloads/${PACKAGE_NAME}.zip"

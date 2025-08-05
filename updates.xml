@@ -11,9 +11,9 @@
     <downloads>
       <downloadurl type="full" format="zip">https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/joomla6/downloads/pkg_gd-GB-joomla6.zip</downloadurl>
     </downloads>
-    <sha256>f2668bb0636259a3f108f069a802edb6f1d5d60565accd7e6f9ba3f02010f8d1</sha256>
-    <sha384>f799cac6470357f32b8324719a0190f83e497e78451bfff0f8df21e4e518776502305d4667021553387796027ac4ae60</sha384>
-    <sha512>3dc46f8e964926652e96d2a07701e763fa83304020794e557b899f00206e536dbb6aeeed724526efdb756a146d9b5ccddb082faee6752efbff4cb21213e35be5</sha512>
+    <sha256>84e3de225343477b76fe556138192559c0df4922e5f84edfad3cedf467c80458</sha256>
+    <sha384>59fec446ed7ad3f5d63ed12e66feab6fe69a22a3e3c9966719937f05142381c9ed119ca5a222c2673cda314ac8bc7f1b</sha384>
+    <sha512>53ebbc3731d7c496a555e91ee00adb5a1bb22651f9ad8ef40264310d3f5f0c5adbd0854a2dba60af313244eb8f824e49c78783fa576f507a3f70d6cdca184622</sha512>
     <changelogurl>https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/joomla6/changelog.xml</changelogurl>
     <tags>
       <tag>stable</tag>

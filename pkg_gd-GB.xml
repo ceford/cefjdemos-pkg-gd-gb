@@ -14,7 +14,6 @@
 	<packagerurl>https://github.com/ceford/cefjdemos-pkg-gd-gb</packagerurl>
 	<description><![CDATA[Scottish Gaelic translation created by openai.com]]></description>
 	<blockChildUninstall>true</blockChildUninstall>
-	<scriptfile>script.php</scriptfile>
 	<files>
 		<file type="language" client="site" id="gd-GB">site_gd-GB.zip</file>
 		<file type="language" client="administrator" id="gd-GB">admin_gd-GB.zip</file>

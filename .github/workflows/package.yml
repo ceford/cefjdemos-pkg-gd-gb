@@ -33,7 +33,7 @@ jobs:
             VERSION=$(xmllint --xpath "string(//version)" pkg_gd-GB.xml)
           fi
 
-          PACKAGE_NAME="lang-extension-${BRANCH_NAME}-${VERSION}"
+          PACKAGE_NAME="lang-extension-${BRANCH_NAME}"
           echo "branch=${BRANCH_NAME}" >> $GITHUB_OUTPUT
           echo "version=${VERSION}" >> $GITHUB_OUTPUT
           echo "package_name=${PACKAGE_NAME}" >> $GITHUB_OUTPUT

@@ -5,14 +5,14 @@
 	<version>5.3.1.2</version>
 	<creationDate>2025-06-18</creationDate>
 	<author>Clifford E Ford</author>
-	<authorEmail>cliff@ford.myzen.co.uk</authorEmail>
+	<authorEmail>cliff@fford.me.uk</authorEmail>
 	<authorUrl>https://github.com/ceford/cefjdemos-pkg-gd-gb</authorUrl>
 	<copyright>(C) 2025 Clifford E Ford. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<url>https://github.com/ceford/cefjdemos-pkg-gd-gb</url>
 	<packager>Clifford E Ford</packager>
 	<packagerurl>https://github.com/ceford/cefjdemos-pkg-gd-gb</packagerurl>
-	<description><![CDATA[Scottish Gaelic translation created by openai.com]]></description>
+	<description><![CDATA[Scottish Gaelic with translation by openai.com]]></description>
 	<blockChildUninstall>true</blockChildUninstall>
 	<files>
 		<file type="language" client="site" id="gd-GB">site_gd-GB.zip</file>

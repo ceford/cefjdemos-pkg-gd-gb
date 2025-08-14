@@ -52,7 +52,24 @@ abstract class Gd_GBLocalise
      */
     public static function getIgnoredSearchWords()
     {
-        return ['agus', 'ann', 'air', 'an', 'am', 'aig', 'le', 'do', 'gu'];
+        return [
+            'agus',   // and
+            'ann',    // in (before consonants, contraction of ann an)
+            'ann an', // in (full form)
+            'air',    // on
+            'am',     // the (masculine before b, f, m, p)
+            'an',     // the (masculine singular before consonants, also negative particle)
+            'na',     // the (plural/feminine, genitive)
+            'is',     // is (copula)
+            'cha',    // not (negative particle)
+            'a',      // vocative particle / possessive
+            'do',     // to/for
+            'le',     // with
+            'sa',     // in the (contraction)
+            'san',    // in the (before certain consonants)
+            'de',     // of, from
+            'bhon',   // from the
+        ];
     }
 
     /**

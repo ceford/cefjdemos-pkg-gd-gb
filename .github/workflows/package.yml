@@ -39,6 +39,7 @@ jobs:
             echo "Unknown branch $BRANCH_NAME"
             exit 1
           fi
+          echo "BRANCH_NAME"=$BRANCH_NAME >> $GITHUB_ENV
           echo "VERSION=$VERSION" >> $GITHUB_ENV
           echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
 
@@ -106,7 +107,7 @@ jobs:
           tag_name: ${{ env.VERSION }}
           name: ${{ env.PACKAGE_NAME }}
           draft: false
-          prerelease: ${{ contains(env.VERSION, 'joomla6') }}
+          prerelease: ${{ contains(env.BRANCH_NAME, 'joomla6') }}
           files: |
             build/final/${{ env.PACKAGE_NAME }}.zip
         env:

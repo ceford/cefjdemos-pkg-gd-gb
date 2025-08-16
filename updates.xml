@@ -9,12 +9,12 @@
     <client>administrator</client>
     <infourl title="Scottish Gaelic Language Pack">https://github.com/ceford/cefjdemos-pkg-gd-gb/blob/main/README.md</infourl>
     <downloads>
-      <downloadurl type="full" format="zip">https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/joomla6/downloads/pkg_gd-GB-joomla6.zip</downloadurl>
+      <downloadurl type="full" format="zip">https://github.com/ceford/cefjdemos-pkg-ga-ie/releases/download/5.3.2/pkg_ga-IE-joomla6.zip</downloadurl>
     </downloads>
     <sha256>d93ea8ea415e54944b13ad84eb29b1b294503f6fa33a9e4dbf5d571c7edd6523</sha256>
     <sha384>f32d2d9c46094204b5a483356d74cdb025ee9675523a4007fbe0bbe581f3bfc7774adde6961dacbb706f2b3176f6b66a</sha384>
     <sha512>864957a2c5e2ba2e81788571708130a6e199c67542c8dd9d0497dfd0c8c4e5ac284af6b6e454773c835e70042681061f83be78f595b188b7074fdcefe8a8edae</sha512>
-    <changelogurl>https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/joomla6/changelog.xml</changelogurl>
+    <changelogurl>https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/refs/heads/joomla6/changelog.xml</changelogurl>
     <tags>
       <tag>stable</tag>
     </tags>

@@ -3,8 +3,8 @@
         <element>gd-GB</element>
         <type>language</type>
         <version>6.0.0</version>
-        <change>
-            <item>Copy of 5.3</item>
-        </change>
+        <add>
+            <item>First release</item>
+        </add>
     </changelog>
 </changelogs>

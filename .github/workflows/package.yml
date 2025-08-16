@@ -106,7 +106,6 @@ jobs:
           tag_name: ${{ env.VERSION }}
           name: ${{ env.PACKAGE_NAME }}
           draft: false
-          prerelease: false
           prerelease: ${{ contains(env.VERSION, 'joomla6') }}
           files: |
             build/final/${{ env.PACKAGE_NAME }}.zip

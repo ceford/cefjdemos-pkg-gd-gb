@@ -8,13 +8,17 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
 
 env:
   EXTENSION_NAME: pkg_gd-GB
   LANGUAGE_CODE: gd-GB
+  LANGUAGE_NAME: Scottish Gaelic
 
 jobs:
-  build-and-release:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,7 +31,7 @@ jobs:
       - name: Set branch and version
         id: set_version
         run: |
-          BRANCH_NAME="${GITHUB_REF##*/}"
+          BRANCH_NAME="${GITHUB_REF_NAME}"
           echo "Branch is $BRANCH_NAME"
           if [ "$BRANCH_NAME" = "joomla5" ]; then
             VERSION="5.3.2"
@@ -39,9 +43,9 @@ jobs:
             echo "Unknown branch $BRANCH_NAME"
             exit 1
           fi
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
           echo "VERSION=$VERSION" >> $GITHUB_ENV
           echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
-          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
 
       # Force tag update
       - name: Force create/update tag
@@ -158,11 +162,69 @@ jobs:
 
           mv updated_updates.xml updates.xml
 
-      - name: Commit updated updates.xml
+      # 3. Try to fetch existing gh-pages branch, or start clean if it doesn't exist
+      - name: Prepare gh-pages working directory
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          mkdir gh-pages
+          if git ls-remote --exit-code origin gh-pages; then
+            echo "Fetching existing gh-pages branch..."
+            git fetch origin gh-pages
+            git clone --branch gh-pages --depth 1 "https://github.com/${GITHUB_REPOSITORY}.git" gh-pages
+          else
+            echo "No gh-pages branch yet, starting fresh."
+          fi
 
-          git add updates.xml
-          git commit -m "Update updates.xml with version ${{ steps.vars.outputs.version }}" || echo "No changes to commit"
-          git push origin ${{ steps.vars.outputs.branch }}
+      # 4. Copy updates.xml into branch-specific subfolder
+      - name: Copy updates.xml
+        run: |
+          if [[ "${GITHUB_REF_NAME}" == *"joomla5" ]]; then
+            mkdir -p gh-pages/joomla5
+            cp updates.xml gh-pages/joomla5/updates.xml
+          elif [[ "${GITHUB_REF_NAME}" == *"joomla6" ]]; then
+            mkdir -p gh-pages/joomla6
+            cp updates.xml gh-pages/joomla6/updates.xml
+          fi
+          ls -R gh-pages
+
+      # 4b. Install Pandoc and convert README.md into index.html for site root
+      - name: Create index.html for site root
+        run: |
+          mkdir -p gh-pages
+          cat <<EOF > gh-pages/index.html
+          <!doctype html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <title>${LANGUAGE_NAME}</title>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+          </head>
+          <body>
+            <h1>${LANGUAGE_NAME} Language Package</h1>
+            <p>This site hosts update files for custom Joomla language extensions.
+            They are read by installations to obtain update information. They are not
+            meant for human use.</p>
+            <h2>Update Files</h2>
+            <ul>
+              <li><a href="./joomla5/updates.xml">Joomla 5 updates.xml</a></li>
+              <li><a href="./joomla6/updates.xml">Joomla 6 updates.xml</a></li>
+            </ul>
+          </body>
+          </html>
+          EOF
+
+      # 5. Upload to Pages artifact
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: gh-pages/
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: publish   # <-- match the actual job name above
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -162,32 +162,21 @@ jobs:
 
           mv updated_updates.xml updates.xml
 
-      - name: List remote branches
-        run: git ls-remote --heads origin
+          echo "Final contents:"
+          ls -l ./
 
-      - name: Checkout gh-pages branch
+      - name: Prepare artifact
         run: |
-          git fetch origin gh-pages || echo "No gh-pages branch yet"
-          git clone --branch gh-pages --single-branch --depth 1 \
-            "https://github.com/${GITHUB_REPOSITORY}.git" gh-pages || \
-            (mkdir gh-pages && cd gh-pages && git init && git checkout -b gh-pages)
+          BRANCH=${GITHUB_REF_NAME}
+          mkdir -p site/$BRANCH
+          cp updates.xml site/$BRANCH/
 
-      - name: Copy build artifacts
-        run: |
-            BRANCH_NAME=${GITHUB_REF_NAME}
-            mkdir -p gh-pages/$BRANCH_NAME
-            cp updates.xml gh-pages/$BRANCH_NAME/
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
 
-      - name: Commit and push changes
-        run: |
-            cd gh-pages
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add .
-            git commit -m "Deploy updates for $GITHUB_REF_NAME" || echo "No changes to commit"
-            git push origin gh-pages
-
-      # 4b. Create index.html for site root
+      # 4b. Install Pandoc and convert README.md into index.html for site root
       - name: Create index.html for site root
         run: |
           mkdir -p gh-pages

@@ -223,6 +223,8 @@ jobs:
             </body>
             </html>
             EOF
+            
+            cp dist/index.html publish/
 
       - name: Commit and push ONLY gh-pages content
         run: |

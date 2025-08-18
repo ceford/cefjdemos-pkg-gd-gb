@@ -162,29 +162,11 @@ jobs:
 
           mv updated_updates.xml updates.xml
 
-      # 3. Try to fetch existing gh-pages branch, or start clean if it doesn't exist
-      - name: Prepare gh-pages working directory
+      - name: Prepare artifact
         run: |
-          mkdir gh-pages
-          if git ls-remote --exit-code origin gh-pages; then
-            echo "Fetching existing gh-pages branch..."
-            git fetch origin gh-pages
-            git clone --branch gh-pages --depth 1 "https://github.com/${GITHUB_REPOSITORY}.git" gh-pages
-          else
-            echo "No gh-pages branch yet, starting fresh."
-          fi
-
-      # 4. Copy updates.xml into branch-specific subfolder
-      - name: Copy updates.xml
-        run: |
-          if [[ "${GITHUB_REF_NAME}" == *"joomla5" ]]; then
-            mkdir -p gh-pages/joomla5
-            cp updates.xml gh-pages/joomla5/updates.xml
-          elif [[ "${GITHUB_REF_NAME}" == *"joomla6" ]]; then
-            mkdir -p gh-pages/joomla6
-            cp updates.xml gh-pages/joomla6/updates.xml
-          fi
-          ls -R gh-pages
+          BRANCH=${GITHUB_REF_NAME}
+          mkdir -p gh-pages/$BRANCH
+          cp updates.xml gh-pages/$BRANCH/
 
       # 4b. Install Pandoc and convert README.md into index.html for site root
       - name: Create index.html for site root

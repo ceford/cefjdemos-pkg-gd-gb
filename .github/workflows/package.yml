@@ -160,21 +160,21 @@ jobs:
             -u "//update/sha512" -v "$SHA512" \
             updates.xml > updated_updates.xml
 
-          mv updated_updates.xml updates.xml
+          mkdir -p dist
+          mv updated_updates.xml dist/updates.xml
 
-      - name: Download existing Pages site
-        uses: actions/download-artifact@v4
-        with:
-          name: github-pages
-        continue-on-error: true  # In case this is the first ever deployment
+      - name: Checkout gh-pages branch
+        run: |
+          git fetch origin gh-pages || true
+          git checkout gh-pages || git checkout --orphan gh-pages
 
-      - name: Prepare artifact
+      - name: Copy branch artifacts
         run: |
           BRANCH=${GITHUB_REF_NAME}
-          mkdir -p site/$BRANCH
-          cp updates.xml site/$BRANCH/
+          mkdir -p $BRANCH
+          cp dist/updates.xml $BRANCH/
 
-          cat <<EOF > site/index.html
+          cat <<EOF > dist/index.html
           <!doctype html>
           <html>
           <head>
@@ -196,10 +196,13 @@ jobs:
           </html>
           EOF
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: site/
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Deploy updates for ${GITHUB_REF_NAME}" || echo "No changes to commit"
+          git push origin gh-pages
 
   deploy:
     environment:

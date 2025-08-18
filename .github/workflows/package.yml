@@ -162,19 +162,16 @@ jobs:
 
           mv updated_updates.xml updates.xml
 
-          echo "Final contents:"
-          ls -l ./
-
       - name: Prepare artifact
         run: |
           BRANCH=${GITHUB_REF_NAME}
-          mkdir -p site/$BRANCH
-          cp updates.xml site/$BRANCH/
+          mkdir -p gh-pages/$BRANCH
+          cp updates.xml gh-pages/$BRANCH/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: gh-pages
 
       # 4b. Install Pandoc and convert README.md into index.html for site root
       - name: Create index.html for site root

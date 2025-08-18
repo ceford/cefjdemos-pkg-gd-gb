@@ -162,9 +162,12 @@ jobs:
 
           mv updated_updates.xml updates.xml
 
-      - name: Create index.html for site root
+      - name: Prepare artifact
         run: |
-          mkdir -p gh-pages
+          BRANCH=${GITHUB_REF_NAME}
+          mkdir -p gh-pages/$BRANCH
+          cp updates.xml gh-pages/$BRANCH/
+
           cat <<EOF > gh-pages/index.html
           <!doctype html>
           <html>
@@ -186,10 +189,6 @@ jobs:
           </body>
           </html>
           EOF
-
-          BRANCH=${GITHUB_REF_NAME}
-          cp updates.xml gh-pages/$BRANCH/
-
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

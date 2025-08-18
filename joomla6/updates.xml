@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<updates>
+  <update>
+    <name>Scottish Gaelic</name>
+    <description>Scottish Gaelic Language Pack</description>
+    <element>gd-GB</element>
+    <type>language</type>
+    <version/>
+    <client>administrator</client>
+    <infourl title="Scottish Gaelic Language Pack">https://github.com/ceford/cefjdemos-pkg-gd-gb/blob/main/README.md</infourl>
+    <downloads>
+      <downloadurl type="full" format="zip">https://github.com/ceford/cefjdemos-pkg-gd-gb/releases/download/6.0.0/pkg_gd-GB-joomla6.zip</downloadurl>
+    </downloads>
+    <sha256>44b7280c59ade2f28df8947af1ff4eab41f11f61c8c3a38e36e36eef1024944a</sha256>
+    <sha384>e18072c1fcab6c6ddccd498368b8132d200f913d0f116ce4ee22b68b9a3db219c7951b8736fe241eff7a0ce9b90d0175</sha384>
+    <sha512>c0f24ee33f23015064243d60213f52f80be26d2ea168b588fb310a1f651e4ca74c6c4d2635c868436df780e50fa11b7a780dbac5923a109801530960984573a7</sha512>
+    <changelogurl>https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/refs/heads/joomla6/changelog.xml</changelogurl>
+    <tags>
+      <tag>stable</tag>
+    </tags>
+    <targetplatform name="joomla" version="[6].[012345]"/>
+  </update>
+</updates>

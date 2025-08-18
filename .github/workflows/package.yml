@@ -232,14 +232,3 @@ jobs:
             git -C publish add -A
             git -C publish commit -m "Deploy ${GITHUB_REF_NAME} at ${GITHUB_SHA}" || echo "No changes to commit"
             git -C publish push origin gh-pages
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: publish   # <-- match the actual job name above
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4

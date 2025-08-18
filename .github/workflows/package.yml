@@ -168,11 +168,6 @@ jobs:
           mkdir -p gh-pages/$BRANCH
           cp updates.xml gh-pages/$BRANCH/
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: gh-pages
-
       # 4b. Install Pandoc and convert README.md into index.html for site root
       - name: Create index.html for site root
         run: |

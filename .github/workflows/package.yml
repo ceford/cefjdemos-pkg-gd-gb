@@ -162,31 +162,32 @@ jobs:
 
           mv updated_updates.xml updates.xml
 
-      # 3. Try to fetch existing gh-pages branch, or start clean if it doesn't exist
-      - name: Prepare gh-pages working directory
-        run: |
-          mkdir gh-pages
-          if git ls-remote --exit-code origin gh-pages; then
-            echo "Fetching existing gh-pages branch..."
-            git fetch origin gh-pages
-            git clone --branch gh-pages --depth 1 "https://github.com/${GITHUB_REPOSITORY}.git" gh-pages
-          else
-            echo "No gh-pages branch yet, starting fresh."
-          fi
+      - name: List remote branches
+        run: git ls-remote --heads origin
 
-      # 4. Copy updates.xml into branch-specific subfolder
-      - name: Copy updates.xml
+      - name: Checkout gh-pages branch
         run: |
-          if [[ "${GITHUB_REF_NAME}" == *"joomla5" ]]; then
-            mkdir -p gh-pages/joomla5
-            cp updates.xml gh-pages/joomla5/updates.xml
-          elif [[ "${GITHUB_REF_NAME}" == *"joomla6" ]]; then
-            mkdir -p gh-pages/joomla6
-            cp updates.xml gh-pages/joomla6/updates.xml
-          fi
-          ls -R gh-pages
+          git fetch origin gh-pages || echo "No gh-pages branch yet"
+          git clone --branch gh-pages --single-branch --depth 1 \
+            "https://github.com/${GITHUB_REPOSITORY}.git" gh-pages || \
+            (mkdir gh-pages && cd gh-pages && git init && git checkout -b gh-pages)
 
-      # 4b. Install Pandoc and convert README.md into index.html for site root
+      - name: Copy build artifacts
+        run: |
+            BRANCH_NAME=${GITHUB_REF_NAME}
+            mkdir -p gh-pages/$BRANCH_NAME
+            cp updates.xml gh-pages/$BRANCH_NAME/
+
+      - name: Commit and push changes
+        run: |
+            cd gh-pages
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add .
+            git commit -m "Deploy updates for $GITHUB_REF_NAME" || echo "No changes to commit"
+            git push origin gh-pages
+
+      # 4b. Create index.html for site root
       - name: Create index.html for site root
         run: |
           mkdir -p gh-pages

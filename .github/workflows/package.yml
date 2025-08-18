@@ -160,29 +160,57 @@ jobs:
             -u "//update/sha512" -v "$SHA512" \
             updates.xml > updated_updates.xml
 
-          mv updated_updates.xml updates.xml
+          mkdir -p dist
+          mv updated_updates.xml dist/updates.xml
 
-      - name: Download existing Pages site
-        uses: actions/download-artifact@v4
-        with:
-          name: github-pages
-        continue-on-error: true  # In case this is the first ever deployment
+        # after you build your artifacts (zips, hashes, updates.xml) into ./dist
+        # e.g. dist/updates.xml, dist/*.zip, dist/*.sha256
 
-      - name: Prepare artifact
+      - name: Clone gh-pages into ./publish
+        env:
+            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          BRANCH=${GITHUB_REF_NAME}
-          mkdir -p site/$BRANCH
-          cp updates.xml site/$BRANCH/
+            set -e
+            REPO="https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
 
-          cat <<EOF > site/index.html
-          <!doctype html>
-          <html>
-          <head>
-            <meta charset="utf-8">
-            <title>${LANGUAGE_NAME}</title>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-          </head>
-          <body>
+            if git ls-remote --heads "$REPO" gh-pages | grep -q gh-pages; then
+              echo "Cloning existing gh-pages branch"
+              git clone --depth 1 --branch gh-pages "$REPO" publish
+            else
+              echo "Creating new gh-pages branch"
+              git init publish
+              cd publish
+              git checkout -b gh-pages
+              git remote add origin "$REPO"
+              touch .nojekyll
+              git -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.noreply.github.com" \
+                commit --allow-empty -m "Initialize gh-pages"
+              git push -u origin gh-pages
+              cd ..
+            fi
+
+      - name: Update files in gh-pages
+        run: |
+            set -e
+            BRANCH=${GITHUB_REF_NAME}     # "joomla5" or "joomla6"
+            mkdir -p publish/$BRANCH
+
+            # Copy your branch artifacts
+            cp dist/updates.xml publish/$BRANCH/
+            # If you also generate zips + hashes, include them:
+            # cp dist/*.zip publish/$BRANCH/ || true
+            # cp dist/*.sha256 publish/$BRANCH/ || true
+
+            # (Re)write index.html
+            cat <<EOF > dist/index.html
+            <!doctype html>
+            <html>
+            <head>
+                <meta charset="utf-8">
+                <title>${LANGUAGE_NAME}</title>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+            </head>
+            <body>
             <h1>${LANGUAGE_NAME} Language Package</h1>
             <p>This site hosts update files for custom Joomla language extensions.
             They are read by installations to obtain update information. They are not
@@ -192,22 +220,15 @@ jobs:
               <li><a href="./joomla5/updates.xml">Joomla 5 updates.xml</a></li>
               <li><a href="./joomla6/updates.xml">Joomla 6 updates.xml</a></li>
             </ul>
-          </body>
-          </html>
-          EOF
+            </body>
+            </html>
+            EOF
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: site/
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: publish   # <-- match the actual job name above
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Commit and push ONLY gh-pages content
+        run: |
+            set -e
+            git -C publish config user.name  "github-actions[bot]"
+            git -C publish config user.email "github-actions[bot]@users.noreply.github.com"
+            git -C publish add -A
+            git -C publish commit -m "Deploy ${GITHUB_REF_NAME} at ${GITHUB_SHA}" || echo "No changes to commit"
+            git -C publish push origin gh-pages

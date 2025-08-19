@@ -5,7 +5,7 @@
     <description>Scottish Gaelic Language Pack</description>
     <element>gd-GB</element>
     <type>language</type>
-    <version/>
+    <version>5.3.1.3</version>
     <client>administrator</client>
     <infourl title="Scottish Gaelic Language Pack">https://github.com/ceford/cefjdemos-pkg-gd-gb/blob/joomla5/README.md</infourl>
     <downloads>

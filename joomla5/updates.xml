@@ -11,9 +11,9 @@
     <downloads>
       <downloadurl type="full" format="zip">https://github.com/ceford/cefjdemos-pkg-gd-gb/releases/download/5.3.2/pkg_gd-GB-joomla5.zip</downloadurl>
     </downloads>
-    <sha256>760c51a96830cf920c3ecd6152a298c83bd7fbbb1d49e8c4883dbf9a582be280</sha256>
-    <sha384>f7a9cbe2455da93b4ae615c0d3e01c723ea07576338b2eca70909c86449158a82c8c6788b9a6f64584d7232d935b1dc6</sha384>
-    <sha512>73f2a5a3d1d5920ac47be43eaa28490d2878462eea25a1cc5f0b8a851f32f317427ecd7f24389ebf15c5fb997e6a949bab360d5ce4d0c62e38e4ac24a9844bee</sha512>
+    <sha256>bea921bf4921281364238edcb7be27a7e717cb06abc5c1f50f739d970cd5f6c3</sha256>
+    <sha384>d5a900858dfa8a45e83fa32d7304d6ade71f6c5f548467d1b9ecbb6899930c8c16d105de2cddbdea55d0513ba9f76661</sha384>
+    <sha512>710321dc46f42dc61558e29bb4a05785716241b63e1cda24ae50c2987f51c4aa51b4db984b209ea7353cca3de6428521a7f9b7f7fe4b75681a2135f75766c34f</sha512>
     <changelogurl>https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/refs/heads/joomla5/changelog.xml</changelogurl>
     <tags>
       <tag>stable</tag>

@@ -16,6 +16,8 @@ env:
   EXTENSION_NAME: pkg_gd-GB
   LANGUAGE_CODE: gd-GB
   LANGUAGE_NAME: Scottish Gaelic
+  VERSION5: 5.3.2
+  VERSION6: 6.0.0
 
 jobs:
   publish:
@@ -34,10 +36,10 @@ jobs:
           BRANCH_NAME="${GITHUB_REF_NAME}"
           echo "Branch is $BRANCH_NAME"
           if [ "$BRANCH_NAME" = "joomla5" ]; then
-            VERSION="5.3.2"
+            VERSION=${VERSION5}
             PACKAGE_NAME="${EXTENSION_NAME}-joomla5"
           elif [ "$BRANCH_NAME" = "joomla6" ]; then
-            VERSION="6.0.0"
+            VERSION=${VERSION6}
             PACKAGE_NAME="${EXTENSION_NAME}-joomla6"
           else
             echo "Unknown branch $BRANCH_NAME"
@@ -215,6 +217,11 @@ jobs:
             <p>This site hosts update files for custom Joomla language extensions.
             They are read by installations to obtain update information. They are not
             meant for human use.</p>
+            <h2>Download for Installation</h2>
+            <ul>
+              <li><a href="https://github.com/ceford/cefjdemos-pkg-gd-gb/releases/download/${V5}/pkg_gd-GB-joomla5.zip">Joomla 5 Installation ZIP</a></li>
+              <li><a href="https://github.com/ceford/cefjdemos-pkg-gd-gb/releases/download/${V6}/pkg_gd-GB-joomla6.zip">Joomla 6 Installation ZIP</a></li>
+            </ul>
             <h2>Update Files</h2>
             <ul>
               <li><a href="./joomla5/updates.xml">Joomla 5 updates.xml</a></li>
@@ -223,7 +230,7 @@ jobs:
             </body>
             </html>
             EOF
-            
+
             cp dist/index.html publish/
 
       - name: Commit and push ONLY gh-pages content

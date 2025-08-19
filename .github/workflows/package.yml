@@ -214,15 +214,14 @@ jobs:
             </head>
             <body>
             <h1>${LANGUAGE_NAME} Language Package</h1>
-            <p>This site hosts update files for custom Joomla language extensions.
-            They are read by installations to obtain update information. They are not
-            meant for human use.</p>
             <h2>Download for Installation</h2>
             <ul>
-              <li><a href="https://github.com/ceford/cefjdemos-pkg-gd-gb/releases/download/${V5}/pkg_gd-GB-joomla5.zip">Joomla 5 Installation ZIP</a></li>
-              <li><a href="https://github.com/ceford/cefjdemos-pkg-gd-gb/releases/download/${V6}/pkg_gd-GB-joomla6.zip">Joomla 6 Installation ZIP</a></li>
+              <li><a href="https://github.com/ceford/cefjdemos-pkg-gd-gb/releases/download/${VERSION5}/pkg_gd-GB-joomla5.zip">Joomla 5 Installation ZIP</a></li>
+              <li><a href="https://github.com/ceford/cefjdemos-pkg-gd-gb/releases/download/${VERSION6}/pkg_gd-GB-joomla6.zip">Joomla 6 Installation ZIP</a></li>
             </ul>
             <h2>Update Files</h2>
+            <p>These files are used by installations to obtain update information. They are not
+            meant for human use.</p>
             <ul>
               <li><a href="./joomla5/updates.xml">Joomla 5 updates.xml</a></li>
               <li><a href="./joomla6/updates.xml">Joomla 6 updates.xml</a></li>

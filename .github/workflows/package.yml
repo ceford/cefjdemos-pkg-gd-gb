@@ -67,11 +67,6 @@ jobs:
         env:
           VERSION: ${{ env.VERSION }}
 
-      - name: Set up PHP (if needed for your build)
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.1'
-
       # (Optional) sanity check that zip is installed
       - name: Ensure zip is available
         run: |

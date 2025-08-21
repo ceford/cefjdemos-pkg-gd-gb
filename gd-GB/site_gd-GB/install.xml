@@ -6,11 +6,10 @@
 	<creationDate>2025-06-18</creationDate>
 	<author>Clifford E Ford</author>
 	<authorEmail>cliff@fford.me.uk</authorEmail>
-	<authorUrl>https://github.com/ceford/cefjdemos-pkg-gd-gb</authorUrl>
+	<authorUrl>https://github.com/ceford/</authorUrl>
 	<copyright>(C) 2025 Clifford E Ford. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<description><![CDATA[Scottish Gaelic translation created by openai.com]]></description>
-
+	<description><![CDATA[Scottish Gaelic language pack with translation by openai.com]]></description>
 	<files>
 		<folder>/</folder>
 		<filename>langmetadata.xml</filename>

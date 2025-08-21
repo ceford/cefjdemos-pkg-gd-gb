@@ -9,7 +9,7 @@
 	<authorUrl>https://github.com/ceford/</authorUrl>
 	<copyright>(C) 2025 Clifford E Ford. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<description><![CDATA[Scottish Gaelic language pack with translation by openai.com]]></description>
+	<description>Scottish Gaelic administrator language</description>
 	<files>
 		<folder>/</folder>
 		<filename>langmetadata.xml</filename>

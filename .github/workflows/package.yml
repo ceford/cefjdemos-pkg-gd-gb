@@ -15,6 +15,7 @@ permissions:
 env:
   EXTENSION_NAME: pkg_gd-GB
   LANGUAGE_CODE: gd-GB
+  LC_LANGUAGE_CODE: gd-gb
   LANGUAGE_NAME: Scottish Gaelic
   # Joomla Versions
   VERSION5: 5.3.2
@@ -221,8 +222,8 @@ jobs:
             <h1>${LANGUAGE_NAME} Language Package</h1>
             <h2>Download for Installation</h2>
             <ul>
-              <li><a href="https://github.com/ceford/cefjdemos-pkg-gd-gb/releases/download/${VERSION5}/pkg_gd-GB-joomla5.zip">Joomla 5 Installation ZIP</a></li>
-              <li><a href="https://github.com/ceford/cefjdemos-pkg-gd-gb/releases/download/${VERSION6}/pkg_gd-GB-joomla6.zip">Joomla 6 Installation ZIP</a></li>
+              <li><a href="https://github.com/ceford/cefjdemos-pkg-${LC_LANGUAGE_CODE}/releases/download/${VERSION5}/pkg_${LANGUAGE_CODE}-joomla5.zip">Joomla 5 Installation ZIP</a></li>
+              <li><a href="https://github.com/ceford/cefjdemos-pkg-${LC_LANGUAGE_CODE}/releases/download/${VERSION6}/pkg_${LANGUAGE_CODE}-joomla6.zip">Joomla 6 Installation ZIP</a></li>
             </ul>
             <h2>Update Files</h2>
             <p>These files are used by installations to obtain update information. They are not

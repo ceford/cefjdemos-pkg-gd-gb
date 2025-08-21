@@ -67,10 +67,12 @@ jobs:
         env:
           VERSION: ${{ env.VERSION }}
 
-      - name: Set up PHP (if needed for your build)
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.1'
+      # (Optional) sanity check that zip is installed
+      - name: Ensure zip is available
+        run: |
+          if ! command -v zip >/dev/null 2>&1; then
+            sudo apt-get update && sudo apt-get install -y zip
+          fi
 
       - name: Create individual zip files
         run: |
@@ -78,13 +80,6 @@ jobs:
           zip -r build/zips/admin_${LANGUAGE_CODE}.zip ${LANGUAGE_CODE}/admin_${LANGUAGE_CODE}
           zip -r build/zips/api_${LANGUAGE_CODE}.zip ${LANGUAGE_CODE}/api_${LANGUAGE_CODE}
           zip -r build/zips/site_${LANGUAGE_CODE}.zip ${LANGUAGE_CODE}/site_${LANGUAGE_CODE}
-
-      # (Optional) sanity check that zip is installed
-      - name: Ensure zip is available
-        run: |
-          if ! command -v zip >/dev/null 2>&1; then
-            sudo apt-get update && sudo apt-get install -y zip
-          fi
 
       - name: Create final package zip
         run: |

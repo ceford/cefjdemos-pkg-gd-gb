@@ -2,6 +2,14 @@
     <changelog>
         <element>gd-GB</element>
         <type>language</type>
+        <version>6.0.0.0</version>
+        <change>
+            <item>Test release</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>gd-GB</element>
+        <type>language</type>
         <version>6.0.0</version>
         <add>
             <item>First release</item>
